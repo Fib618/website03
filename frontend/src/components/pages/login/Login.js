@@ -1,36 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-const login_css = {
-    width: '50%',
-    color:'blue',
-    border: 'solid 1px',
-    margin : '2px',
-};
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import "./Login.css";
 
 
-export default class Login extends React.Component {
-    render() {
-        return (
-            <div class="container" style={login_css}>
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" />
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+export default function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-        );
+    function validateForm() {
+        return email.length > 0 && password.length > 0;
     }
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+
+
+    return (
+        <div className="Login" >
+            <Form onSubmit={handleSubmit}>
+                <Form.Group size="lg" controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        auto
+                        Focus
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} />
+                </Form.Group>
+                <Form.Group size="lg" controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} />
+                </Form.Group>
+                <Button block size="lg" type="submit" disabled={!validateForm()} >
+                    Login
+                </Button>
+            </Form>
+        </div>
+    );
 }
