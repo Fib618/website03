@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
@@ -22,7 +22,12 @@ function App() {
           Learn React
         </a>
       </header> */}
-    <Header />
+      <Router>
+        <Header>
+        <Route exact path="/" />
+        <Route path="/login" component={"login"}/>
+        </Header>
+      </Router>
     <Contents />
     <Footer />
     </div>

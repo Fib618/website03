@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
 
 
 export default class Header extends React.Component {
@@ -33,6 +34,9 @@ export default class Header extends React.Component {
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                                <li class="nav-item">
+                                    <Link to="/login" class="nav-link">Login</Link>
                                 </li>
                             </ul>
                             <form class="d-flex">
