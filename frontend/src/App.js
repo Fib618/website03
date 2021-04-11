@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Contents from './components/Contents';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
+// import Contents from './components/Contents';
+
+import Login from './login/Login';
 
 function App() {
   return (
@@ -23,13 +25,11 @@ function App() {
         </a>
       </header> */}
       <Router>
-        <Header>
-        <Route exact path="/" />
-        <Route path="/login" component={"login"}/>
-        </Header>
+        <Login>
+          <Route exact path="/" />
+          <Route path="/login" component={"login"} />
+        </Login>
       </Router>
-    <Contents />
-    <Footer />
     </div>
   );
 }

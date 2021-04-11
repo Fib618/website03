@@ -1,0 +1,35 @@
+{
+    "home": {
+        "url": "#",
+        "child": {}
+    },
+    "Link":  {
+        "url": "#",
+        "child": {}
+    },
+    "Dropdown":  {
+        "url": "#",
+        "child": {
+            "Action": {
+                "url":"#",
+                "child":{}
+            },
+            "Another action": {
+                "url":"#",
+                "child":{}
+            },
+            "Something else here": {
+                "url":"#",
+                "child":{}
+            }
+        }
+    },
+    "Disabled": {
+        "url": "#",
+        "child": {}
+    },
+    "Login" : {
+        "url": "#",
+        "child": {}
+    }
+}
