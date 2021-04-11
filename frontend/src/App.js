@@ -1,37 +1,25 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+
+import history from './history';
+import LandingPage from './LandingPage';
+import LoginedPage from './LoginedPage';
+import NavBar from './NavBar';
 import logo from './logo.svg';
 import './App.css';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
-// import Contents from './components/Contents';
 
-import Login from './login/Login';
-
-function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Router>
-        <Login>
-          <Route exact path="/" />
-          <Route path="/login" component={"login"} />
-        </Login>
+class App extends Component {
+  render() {
+    return (
+      <Router history={history} >
+        <NavBar />
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/logined" exact component={LoginedPage} />
+        </Switch>
       </Router>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
