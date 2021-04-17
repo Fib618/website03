@@ -31,6 +31,10 @@ class LoginForm extends Component {
         this.props.emailChanged(email.target.value);
     };
 
+    onPasswordChange = password => {
+        this.props.passwordChanged(password.target.value);
+    };
+
     googleLogin = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithRedirect(provider);
@@ -67,7 +71,7 @@ class LoginForm extends Component {
                 <GoogleLoginButton onClick={this.googleLogin} align="center" iconSize={'20'} size={'40'}>
                     <span style={{ fontSize: 16 }}>Googleで{this.props.formText}</span>
                 </GoogleLoginButton>
-                <TwitterLoginButton onClick={this.twitter} align="center" iconSize={'20'} size={'40'}>
+                <TwitterLoginButton onClick={this.twitterLogin} align="center" iconSize={'20'} size={'40'}>
                     <span style={{ fontSize: 16 }}>Twitterで{this.props.formText}</span>
                 </TwitterLoginButton>
                 <FacebookLoginButton onClick={this.facebookLogin} align="center" iconSize={'20'} size={'40'}>
@@ -88,6 +92,7 @@ class LoginForm extends Component {
                         <TextField
                             id="standard-password"
                             label="パスワード"
+                            type="password"
                             value={this.props.password}
                             onChange={this.onPasswordChange}
                             margin="normal"
@@ -97,9 +102,9 @@ class LoginForm extends Component {
                     {this.props.loading ? (
                         <CircularProgress style={{ marginTop: 5 }} />
                     ) : (
-                        <button style={{ margin: 20 }} onClick={this.onButtonPresss} variant="contained" color="primary">
+                        <Button style={{ margin: 20 }} onClick={this.onButtonPresss} variant="contained" color="primary">
                             {this.props.formText}
-                        </button>
+                        </Button>
                     )}
                 </form>
             </div>
